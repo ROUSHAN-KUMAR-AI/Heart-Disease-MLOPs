@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Data (regenerate via the download script) -- keep the folder, not big files
+data/raw/*.csv
+data/processed/*.csv
+
+# OS
+.DS_Store

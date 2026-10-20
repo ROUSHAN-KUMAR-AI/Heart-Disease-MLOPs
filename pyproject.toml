@@ -1,0 +1,17 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = ["notebooks", "mlruns"]
+
+# Focus on real correctness problems (pyflakes: unused imports, undefined names,
+# unused variables). This keeps CI's lint gate meaningful without failing the
+# build on purely stylistic nits. Add "I", "E", "W", "UP", "B" later if you want
+# stricter style enforcement and run `ruff check --fix` locally first.
+[tool.ruff.lint]
+select = ["F"]
+ignore = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
