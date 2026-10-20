@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart-disease-api
+  labels: { app: heart-disease-api }
+spec:
+  type: LoadBalancer        # use NodePort on bare Minikube; LoadBalancer on GKE/EKS/AKS
+  selector: { app: heart-disease-api }
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8000

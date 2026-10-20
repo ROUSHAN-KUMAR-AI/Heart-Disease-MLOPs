@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: heart-disease-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer      # NodePort for Minikube
+  port: 80
+  targetPort: 8000
+
+resources:
+  requests: { cpu: 100m, memory: 256Mi }
+  limits:   { cpu: 500m, memory: 512Mi }
+
+ingress:
+  enabled: false
+  className: nginx
+  host: heart-api.local
+
+metrics:
+  prometheusScrape: true

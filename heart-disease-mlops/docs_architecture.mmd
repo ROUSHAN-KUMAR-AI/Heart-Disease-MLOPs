@@ -1,0 +1,16 @@
+flowchart LR
+  subgraph Training["Offline training pipeline"]
+    A[UCI Heart Disease<br/>ucimlrepo / URL] --> B[Preprocess<br/>clean + split]
+    B --> C[Feature pipeline<br/>impute + scale + OHE]
+    C --> D[Train + tune<br/>LogReg / RandomForest]
+    D --> E[(MLflow tracking)]
+    D --> F[model.joblib<br/>full Pipeline]
+  end
+  subgraph Serving["Serving + ops"]
+    F --> G[FastAPI<br/>/predict /health /metrics]
+    G --> H[Docker image]
+    H --> I[Kubernetes<br/>Deployment + Service/Ingress]
+    G --> J[Prometheus] --> K[Grafana]
+  end
+  CI[GitHub Actions<br/>lint-test-train-build] --> G
+  Client -->|JSON| I

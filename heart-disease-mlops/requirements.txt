@@ -1,0 +1,27 @@
+# ---- core data / ML ----
+pandas==2.2.3
+numpy==1.26.4
+scikit-learn==1.5.2
+joblib==1.4.2
+
+# ---- EDA / plots ----
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# ---- experiment tracking ----
+mlflow==2.17.2
+
+# ---- dataset acquisition ----
+ucimlrepo==0.0.7
+
+# ---- serving ----
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+pydantic==2.10.2
+prometheus-client==0.21.1
+
+# ---- tests / quality ----
+pytest==8.3.4
+pytest-cov==6.0.0
+httpx==0.28.1          # required by fastapi TestClient
+ruff==0.8.4            # linting (used in CI)
