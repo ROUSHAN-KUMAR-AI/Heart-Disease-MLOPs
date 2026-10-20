@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.git/
+.github/
+mlruns/
+notebooks/
+tests/
+screenshots/
+reports/
+data/
+*.ipynb
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
